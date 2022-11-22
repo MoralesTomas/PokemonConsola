@@ -5,6 +5,8 @@
  */
 package pokemonconsola;
 
+import Clases.Menu;
+
 /**
  *
  * @author lenovo
@@ -16,6 +18,9 @@ public class PokemonConsola {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu myMenu = new Menu();
+        myMenu.menu();
+        
     }
     
 }
