@@ -63,7 +63,7 @@ public class utilidad {
         mensaje("Fin de listado...");
     }
     
-    public void mostrarPorOrden(ArrayList<Pokemon> listado){
+    public void ordenarPokemon(ArrayList<Pokemon> listado){
         Collections.sort(listado, (Pokemon p1, Pokemon p2) -> p1.getNombre().compareTo(p2.getNombre()));
     }
 }
