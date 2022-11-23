@@ -4,7 +4,7 @@ package Clases;
 import java.util.Scanner;
 
 public class Menu {
-    
+    //Array para guardar usuarios
     String [] nombreUsuario = new String[4];
     //Array para guardar contrasenas
     String [] contraUsuario = new String[4];
@@ -14,7 +14,6 @@ public class Menu {
         nombreUsuario[0] = "admin";
         contraUsuario[0] = "admin";
     }
-    //Array para guardar usuarios
         
     
     public void menu(){
@@ -111,36 +110,24 @@ public class Menu {
                             i++;
                         }
                     }
-                    
                 }else{
                     System.out.println("Limite de usuario alcanzado");
                     iniciarSesion();
                 }
                 iniciarSesion();
                 break;
-                
+            //opcion salir
             case 3: 
                 menu();
                 break;
+            //No selecciono correctamente
             default:
                 System.out.println("Opcion no disponible");
                 break;
         }
     }
     
-    //Acerca de 
-    
-    public void acercaDe(){
-        System.out.println("Creado por:");
-        System.out.println("Tomas Morales");
-        System.out.println("Diego Morales");
-    }
-    
-    //Ayuda 
-    public void ayuda(){
-        System.out.println("Reglas del juego:\n\n");
-    }
-    
+     //Opciones antes de batalla
     public void PreJuego(int seleccion){
         switch(seleccion){
             case 1:
@@ -156,6 +143,18 @@ public class Menu {
                 System.out.println("Opcion no valida");
                 break;
         }
+    }
+    
+    //Acerca de 
+    public void acercaDe(){
+        System.out.println("Creado por:");
+        System.out.println("Tomas Morales");
+        System.out.println("Diego Morales");
+    }
+    
+    //Ayuda 
+    public void ayuda(){
+        System.out.println("Reglas del juego:\n\n");
     }
     
 }
