@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Enumeraciones;
+package Clases;
 
 /**
  *
  * @author lenovo
  */
-public class test {
-    
+public enum Compatibilidad {
+    neutro,
+    superior,
+    inferior
 }
