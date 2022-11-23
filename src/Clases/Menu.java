@@ -131,7 +131,7 @@ public class Menu {
     public void PreJuego(int seleccion){
         switch(seleccion){
             case 1:
-                System.out.println("Emepezando a jugar....");
+                System.out.println("Iniciando a jugar.......");
                 break;
             case 2:
                 System.out.println("Manejo de pokemons.....");
