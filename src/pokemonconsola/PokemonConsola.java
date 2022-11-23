@@ -6,6 +6,7 @@
 package pokemonconsola;
 
 import App.Start;
+import Clases.Menu;
 
 /**
  *
@@ -13,15 +14,17 @@ import App.Start;
  */
 public class PokemonConsola {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+        /**
+        * @param args the command line arguments
+        */
+        public static void main(String[] args) {
         // TODO code application logic here
-        
+
         //testeo
         Start app = new Start();
-        
-    }
-    
+        Menu myMenu = new Menu();
+        myMenu.menu();
+
+        }
+
 }
