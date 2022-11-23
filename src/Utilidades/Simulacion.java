@@ -11,8 +11,7 @@ import Clases.Pokemon;
  *
  * @author lenovo
  */
-public interface  Simulacion {
-    
+public class Simulacion {
     
     
 }

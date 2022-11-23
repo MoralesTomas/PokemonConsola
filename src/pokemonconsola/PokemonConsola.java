@@ -5,6 +5,8 @@
  */
 package pokemonconsola;
 
+import App.Start;
+
 /**
  *
  * @author lenovo
@@ -16,6 +18,10 @@ public class PokemonConsola {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //testeo
+        Start app = new Start();
+        
     }
     
 }

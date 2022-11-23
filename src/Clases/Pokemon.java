@@ -82,4 +82,9 @@ public abstract class Pokemon {
         this.ataques = ataques;
     }
     
+    @Override
+    public String toString() {
+        
+        return this.getNombre()+" "+this.getTipo();
+    }
 }
