@@ -66,4 +66,13 @@ public class utilidad {
     public void ordenarPokemon(ArrayList<Pokemon> listado){
         Collections.sort(listado, (Pokemon p1, Pokemon p2) -> p1.getNombre().compareTo(p2.getNombre()));
     }
+    
+    public Pokemon buscarPokemonPorNombre(ArrayList<Pokemon> listado, String Nombre){
+        for (int i = 0; i < listado.size(); i++) {
+            if(listado.get(i).getNombre().equals(Nombre)){
+                return listado.get(i);
+            }
+        }
+        return null;
+    }
 }
