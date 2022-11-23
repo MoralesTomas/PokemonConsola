@@ -14,8 +14,12 @@ import Utilidades.utilidad;
 public class AccionesJuego {
     utilidad util = new utilidad(); 
     
-    public void pelea(Pokemon atacante, Pokemon defensor){
+    public void pelea(Pokemon atacante, Pokemon defensor,Usuario user){
         util.mensaje("Pelea!!!");
-        System.out.println("");
+        System.out.println("Selecciona el ataque que desees utilizar:");
+        for (int i = 0; i <atacante.getAtaques().length; i++) {
+            System.out.println(">"+atacante.getAtaques()[i]);
+        }
+        
     }
 }

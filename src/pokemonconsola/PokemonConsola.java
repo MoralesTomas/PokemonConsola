@@ -10,20 +10,13 @@ import Clases.Menu;
 
 /**
  *
- * @author lenovo
+ * @author barto.mora
  */
 public class PokemonConsola {
-
-        /**
-        * @param args the command line arguments
-        */
         public static void main(String[] args) {
-        // TODO code application logic here
 
         //testeo
         Start app = new Start();
-        Menu myMenu = new Menu();
-        myMenu.menu();
 
         }
 

@@ -1,5 +1,6 @@
 package App;
 
+import Clases.Menu;
 import Clases.PokeTipo;
 import Clases.Pokemon;
 import Clases.PokemonAgua;
@@ -17,6 +18,10 @@ public class Start {
     public Start(){
         llenado();
         utilidad util = new utilidad();
+        util.mensaje("Comenzando la aplicacion!");
+        Menu men = new Menu();
+        men.menu();
+        
     }
     
     public void llenado(){
