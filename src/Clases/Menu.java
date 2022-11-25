@@ -69,24 +69,17 @@ public class Menu {
                 String contraUsu = clave.nextLine();
                 
                 boolean inicioExitoso = false;
-                int decision=0;
                 for(int i=0; i<nombreUsuario.length; i++ ){
                     if(nomUsu.equals(nombreUsuario[i])){
                         if(contraUsu.equals(contraUsuario[i])){
                             inicioExitoso = true;
                             System.out.println("Bienvenido "+nombreUsuario[i] + "\n");
-                            System.out.println("Que deseas hacer:\n");
-                            System.out.println("1 - Jugar");
-                            System.out.println("2 - Menu de pokemons");
-                            System.out.println("3 - Salir");
-                            decision = validacion.nextInt();
+                            inicioSesionExitoso();
                         }
                     }
                 }
                 //Comprobar inicio de sesion
-                if(inicioExitoso == true){
-                    PreJuego(decision);
-                }else{
+                if(inicioExitoso == false){
                     System.out.println("Usuario o clave incorrecto");
                     iniciarSesion();
                 }
@@ -126,6 +119,18 @@ public class Menu {
                 System.out.println("Opcion no disponible");
                 break;
         }
+    }
+    
+    //Luego de inicio de sesion exitoso
+    public void inicioSesionExitoso(){
+        int decision = 0;
+        Scanner seleccion = new Scanner(System.in);
+        System.out.println("Que deseas hacer:\n");
+        System.out.println("1 - Jugar");
+        System.out.println("2 - Menu de pokemons");
+        System.out.println("3 - Salir");
+        decision = seleccion.nextInt();
+        PreJuego(decision);
     }
     
      //Opciones antes de batalla

@@ -8,6 +8,7 @@ package SubMenus;
 import App.Start;
 import static App.Start.pokemones;
 import static App.Start.random;
+import Clases.Menu;
 import Clases.Pokemon;
 import Clases.PokemonVolador;
 import Enumeraciones.PokeTipo;
@@ -19,7 +20,7 @@ import java.util.Scanner;
  * @author lenovo
  */
 public class MenuPokemones {
-    
+    Menu menu = new Menu();
     utilidad util = new utilidad();
     
     public void menuP(){
@@ -42,18 +43,23 @@ public class MenuPokemones {
         switch(desicion){
             case 1:
                 Add(sangria);
+                menu.inicioSesionExitoso();
                 break;
             case 2:
                 Delete(sangria);
+                menu.inicioSesionExitoso();
                 break;
             case 3:
                 Edit(sangria);
+                menu.inicioSesionExitoso();
                 break;
             case 4:
                 util.mostrarPokemons(pokemones);
+                menu.inicioSesionExitoso();
                 break;
             case 5:
                 util.ordenarPokemon(pokemones);
+                menu.inicioSesionExitoso();
                 break;
             default:
                 util.mensaje("opcion incorrecta...");
