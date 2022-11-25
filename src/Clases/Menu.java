@@ -1,6 +1,7 @@
 
 package Clases;
 
+import SubMenus.MenuPokemones;
 import java.util.Scanner;
 
 public class Menu {
@@ -135,6 +136,8 @@ public class Menu {
                 break;
             case 2:
                 System.out.println("Manejo de pokemons.....");
+                MenuPokemones men = new MenuPokemones();
+                men.menuP();
                 break;
             case 3: 
                 menu();
