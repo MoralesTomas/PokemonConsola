@@ -6,6 +6,7 @@
 package Clases;
 
 import Enumeraciones.PokeTipo;
+import Utilidades.utilidad;
 
 /**
  *
@@ -82,6 +83,26 @@ public abstract class Pokemon {
 
     public void setAtaques(Ataque[] ataques) {
         this.ataques = ataques;
+    }
+    
+    public void presentarse(){
+        utilidad util = new utilidad();
+        String sangria = "\t";
+        util.mensaje(getNombre());
+        System.out.println(sangria + "Nombre: "+getNombre());
+        System.out.println(sangria + "Vida: "+getVida());
+        System.out.println(sangria + "Defensa: "+getDefensa());
+        System.out.println(sangria + "Tipo: "+getTipo());
+        System.out.println(sangria + "Ataques: ");
+        
+        sangria += "\t";
+        for (int i = 0; i < getAtaques().length; i++) {
+            String nombre = getAtaques()[i].getNombre();
+            double dan = getAtaques()[i].getDanio();
+            System.out.println(sangria+nombre+" -- Danio: "+dan);
+        }
+        
+        util.mensaje(getNombre());
     }
     
     @Override
