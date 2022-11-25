@@ -6,6 +6,7 @@
 package SubMenus;
 
 import static App.Start.pokemones;
+import Clases.Usuario;
 import Utilidades.utilidad;
 import java.util.Scanner;
 
@@ -16,6 +17,11 @@ import java.util.Scanner;
 public class MenuSeleccion {
     
     utilidad util = new utilidad();
+    Usuario user;
+    
+    public MenuSeleccion(Usuario user){
+        this.user = user;
+    }
     
     public void menuSel(){
         String sangria = "\t\t";
