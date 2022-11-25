@@ -5,15 +5,14 @@ import SubMenus.MenuPokemones;
 import java.util.Scanner;
 
 public class Menu {
-    //Array para guardar usuarios
-    String [] nombreUsuario = new String[4];
-    //Array para guardar contrasenas
-    String [] contraUsuario = new String[4];
+    
+    public Usuario [] usuarios = new Usuario[4];
     
     
     public Menu(){
-        nombreUsuario[0] = "admin";
-        contraUsuario[0] = "admin";
+        usuarios[0] = new Usuario();
+        usuarios[0].setAlias("admin");
+        usuarios[0].setClave("admin");
     }
         
     
@@ -69,31 +68,24 @@ public class Menu {
                 String contraUsu = clave.nextLine();
                 
                 boolean inicioExitoso = false;
-                int decision=0;
-                for(int i=0; i<nombreUsuario.length; i++ ){
-                    if(nomUsu.equals(nombreUsuario[i])){
-                        if(contraUsu.equals(contraUsuario[i])){
+                for(int i=0; i<usuarios.length; i++ ){
+                    if(nomUsu.equals(usuarios[i].getAlias())){
+                        if(contraUsu.equals(usuarios[i].getClave())){
                             inicioExitoso = true;
-                            System.out.println("Bienvenido "+nombreUsuario[i] + "\n");
-                            System.out.println("Que deseas hacer:\n");
-                            System.out.println("1 - Jugar");
-                            System.out.println("2 - Menu de pokemons");
-                            System.out.println("3 - Salir");
-                            decision = validacion.nextInt();
+                            System.out.println("Bienvenido "+usuarios[i].getAlias() + "\n");
+                            inicioSesionExitoso();
                         }
                     }
                 }
                 //Comprobar inicio de sesion
-                if(inicioExitoso == true){
-                    PreJuego(decision);
-                }else{
+                if(inicioExitoso == false){
                     System.out.println("Usuario o clave incorrecto");
                     iniciarSesion();
                 }
                 break;
             //Crear usuario
             case 2:
-                if(nombreUsuario[3]==null){
+                if(usuarios[3]==null){
                     System.out.println("Ingresa tu nuevo nombre de usuario:");
                     Scanner nombreNuevo = new Scanner(System.in);
                     String nombreNew = nombreNuevo.nextLine();
@@ -101,11 +93,12 @@ public class Menu {
                     String contraNew = nombreNuevo.nextLine();
                     
                     int i = 0;
-                    while(i < nombreUsuario.length){
-                        if(nombreUsuario[i] == null){
+                    while(i < usuarios.length){
+                        if(usuarios[i] == null){
                             System.out.println(nombreNew +" fue registrado.");
-                            nombreUsuario[i] = nombreNew;
-                            contraUsuario[i] = contraNew;
+                            usuarios[i] = new Usuario();
+                            usuarios[i].setAlias(nombreNew);
+                            usuarios[i].setClave(contraNew);
                             break;
                         }else{
                             i++;
@@ -126,6 +119,18 @@ public class Menu {
                 System.out.println("Opcion no disponible");
                 break;
         }
+    }
+    
+    //Luego de inicio de sesion exitoso
+    public void inicioSesionExitoso(){
+        int decision = 0;
+        Scanner seleccion = new Scanner(System.in);
+        System.out.println("Que deseas hacer:\n");
+        System.out.println("1 - Jugar");
+        System.out.println("2 - Menu de pokemons");
+        System.out.println("3 - Salir");
+        decision = seleccion.nextInt();
+        PreJuego(decision);
     }
     
      //Opciones antes de batalla
