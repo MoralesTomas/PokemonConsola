@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 
 public class Start {
-    ArrayList<Pokemon> pokemones = new ArrayList<Pokemon>();
+    public static ArrayList<Pokemon> pokemones = new ArrayList<Pokemon>();
     
     public Start(){
         llenado();
@@ -46,7 +46,7 @@ public class Start {
         pokemones.add(new PokemonVolador("Zubat", random(300,500), random(200,300) , 0, PokeTipo.Volador));
     }
     
-    public double random(int int1, int int2){
+    public static double random(int int1, int int2){
         return Math.floor(Math.random()*(int2-int1+1)+int2);
     }
     

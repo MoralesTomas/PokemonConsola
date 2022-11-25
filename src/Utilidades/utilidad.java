@@ -6,9 +6,10 @@
 package Utilidades;
 
 import Clases.Pokemon;
+import Enumeraciones.PokeTipo;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Scanner;
 
 /**
  *
@@ -16,11 +17,7 @@ import java.util.Comparator;
  */
 public class utilidad {
     
-    public boolean AddPokemon(ArrayList<Pokemon> listado, Pokemon nuevo){
-        listado.add(nuevo);
-        mensaje("Pokemon agregado exitosamente");
-        return true;
-    }
+    
     
     public boolean EditPokemon(ArrayList<Pokemon> listado,String Nombre, Pokemon nuevo){
         for (int i = 0; i < listado.size(); i++) {
@@ -74,5 +71,42 @@ public class utilidad {
             }
         }
         return null;
+    }
+    
+    public PokeTipo seleccionPokeTipo(String sangria){
+        PokeTipo tipo;
+        System.out.println(sangria+"Ingrese el tipo del pokemon");
+        System.out.println(sangria+"1."+PokeTipo.Agua);
+        System.out.println(sangria+"2."+PokeTipo.Fuego);
+        System.out.println(sangria+"3."+PokeTipo.Planta);
+        System.out.println(sangria+"4."+PokeTipo.Electrico);
+        System.out.println(sangria+"5."+PokeTipo.Volador);
+        
+        
+        Scanner lector = new Scanner(System.in);
+        System.out.print(sangria+">");
+        int opcion = lector.nextInt();
+        switch(opcion){
+            case 1:
+                tipo = PokeTipo.Agua;
+                break;
+            case 2:
+                tipo = PokeTipo.Fuego;
+                break;
+            case 3:
+                tipo = PokeTipo.Planta;
+                break;
+            case 4:
+                tipo = PokeTipo.Electrico;
+                break;
+            case 5:
+                tipo = PokeTipo.Volador;
+                break;
+            default:
+                System.out.println(sangria+"Opcion erronea ");
+                tipo = PokeTipo.Agua;
+                break;
+        }
+        return tipo;
     }
 }
