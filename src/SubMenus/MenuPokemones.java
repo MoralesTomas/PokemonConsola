@@ -5,7 +5,7 @@
  */
 package SubMenus;
 
-import Clases.PokeTipo;
+import Enumeraciones.PokeTipo;
 import Utilidades.utilidad;
 import java.util.Scanner;
 
@@ -52,6 +52,7 @@ public class MenuPokemones {
         Scanner lector = new Scanner(System.in);
         System.out.println(sangria+"Ingrese el nombre del pokemon:");
         System.out.print(">");
+        
         
     }
 }

@@ -5,6 +5,9 @@
  */
 package Clases;
 
+import Enumeraciones.Compatibilidad;
+import Enumeraciones.PokeTipo;
+
 /**
  *
  * @author lenovo

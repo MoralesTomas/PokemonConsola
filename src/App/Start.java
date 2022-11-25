@@ -1,7 +1,7 @@
 package App;
 
 import Clases.Menu;
-import Clases.PokeTipo;
+import Enumeraciones.PokeTipo;
 import Clases.Pokemon;
 import Clases.PokemonAgua;
 import Clases.PokemonElectrico;
