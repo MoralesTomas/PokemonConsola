@@ -34,6 +34,7 @@ public class MenuPokemones {
         System.out.println(sangria+"3.Editar pokemon");
         System.out.println(sangria+"4.Ver listado de pokemons");
         System.out.println(sangria+"5.Ordenar listado de pokemons");
+        System.out.println(sangria+"6.Buscar pokemon");
         System.out.print(sangria+">");
         int sel = lector.nextInt();
         desicion(sel,sangria);
@@ -61,6 +62,9 @@ public class MenuPokemones {
                 util.ordenarPokemon(pokemones);
                 menu.inicioSesionExitoso();
                 break;
+            case 6:
+                buscar(sangria);
+                break;
             default:
                 util.mensaje("opcion incorrecta...");
                 break;
@@ -84,16 +88,18 @@ public class MenuPokemones {
         System.out.print(sangria+">");
         nombre = lector.nextLine();
         
+        System.out.println("");
         tipo = util.seleccionPokeTipo(sangria);
         
         //validar que no se repita el pokemon.
         if(!existePokemon(nombre)){
             util.mensaje(sangria+"Pokemon agregado correctamente");
-            pokemones.add(new PokemonVolador("Zubat", random(300,500), random(200,300) , 0, tipo));
+            pokemones.add(new PokemonVolador(nombre, random(300,500), random(200,300) , 0, tipo));
         }else{
             util.mensaje(sangria+"No se pudo agregar al pokemon");
             util.mensaje(sangria+"Ya existe un pokemon con este nombre");
         }
+        
         
     }
     
@@ -129,6 +135,17 @@ public class MenuPokemones {
         if(!util.EditPokemon(pokemones, nombre, tmp)){
             util.mensaje(sangria+"No se pudo ejecutar la peticion");
         }
+    }
+    
+    public void buscar(String sangria_){
+        String sangria = sangria_ + "\t";
+        Scanner lector = new Scanner(System.in);
+        
+        System.out.println(sangria+"Ingresa el nombre del pokemon que deseas buscar");
+        System.out.print(sangria+">");
+        
+        String nombre = lector.nextLine();
+        util.buscarPokemonPorNombre(pokemones, nombre).presentarse();
     }
     
     public boolean existePokemon(String nombre){
