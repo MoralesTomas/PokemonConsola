@@ -83,9 +83,10 @@ public class PokemonElectrico extends Pokemon {
             setDefensa(0);
 
             //restar el valor del danio 
-            setVida(getVida() - result);
+            setVida(getVida() + result);
             if(getVida() <= 0){
                 setVida(0);
+                setVivo(false);
             }
         }else{
             setDefensa(result);

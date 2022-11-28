@@ -8,15 +8,23 @@ import Clases.PokemonElectrico;
 import Clases.PokemonFuego;
 import Clases.PokemonPlanta;
 import Clases.PokemonVolador;
+import Clases.Usuario;
 import Utilidades.utilidad;
 import java.util.ArrayList;
 
 
 public class Start {
     public static ArrayList<Pokemon> pokemones = new ArrayList<Pokemon>();
+    public static Usuario tenko;
     
     public Start(){
         llenado();
+        
+        //creando al adversario de juego
+        tenko = new Usuario();
+        tenko.setAlias("Tenko");
+        tenko.setClave("pass");
+        
         utilidad util = new utilidad();
         util.mensaje("Comenzando la aplicacion!");
         Menu men = new Menu();
@@ -46,8 +54,9 @@ public class Start {
         pokemones.add(new PokemonVolador("Zubat", random(300,500), random(200,300) , 0, PokeTipo.Volador));
     }
     
-    public static double random(int int1, int int2){
-        return Math.floor(Math.random()*(int2-int1+1)+int2);
+    public static double random(int min, int max){
+        double number = (Math.random() * ((max - min) + 1)) + min;
+        return (double)Math.round(number * 100d) / 100d;
     }
     
 }

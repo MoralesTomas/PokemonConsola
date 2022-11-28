@@ -6,6 +6,11 @@
 package Utilidades;
 
 import Clases.Pokemon;
+import Clases.PokemonAgua;
+import Clases.PokemonElectrico;
+import Clases.PokemonFuego;
+import Clases.PokemonPlanta;
+import Clases.PokemonVolador;
 import Enumeraciones.PokeTipo;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,7 +60,7 @@ public class utilidad {
     public void mostrarPokemons(ArrayList<Pokemon> listado){
         mensaje("Listado de pokemons");
         for (int i = 0; i < listado.size(); i++) {
-            System.out.println(listado.get(i).toString());
+            System.out.println((i+1) + "." + listado.get(i).toString());
         }
         mensaje("Fin de listado...");
     }
@@ -75,7 +80,7 @@ public class utilidad {
     
     public PokeTipo seleccionPokeTipo(String sangria){
         PokeTipo tipo;
-        System.out.println(sangria+"Ingrese el tipo del pokemon");
+        System.out.println(sangria+"Ingrese el tipo del pokemon digitando el numero del tipo");
         System.out.println(sangria+"1."+PokeTipo.Agua);
         System.out.println(sangria+"2."+PokeTipo.Fuego);
         System.out.println(sangria+"3."+PokeTipo.Planta);
@@ -109,4 +114,88 @@ public class utilidad {
         }
         return tipo;
     }
+    
+    public Pokemon copiado(PokemonAgua base){
+        Pokemon result = new PokemonAgua(base.getNombre(),base.getVida(),base.getDefensa(),base.getPrecision(),base.getTipo());
+        return result;
+    }
+    
+    public Pokemon copiado(PokemonFuego base){
+        Pokemon result = new PokemonFuego(base.getNombre(),base.getVida(),base.getDefensa(),base.getPrecision(),base.getTipo());
+        return result;
+    }
+    
+    public Pokemon copiado(PokemonPlanta base){
+        Pokemon result = new PokemonPlanta(base.getNombre(),base.getVida(),base.getDefensa(),base.getPrecision(),base.getTipo());
+        return result;
+    }
+    
+    public Pokemon copiado(PokemonElectrico base){
+        Pokemon result = new PokemonElectrico(base.getNombre(),base.getVida(),base.getDefensa(),base.getPrecision(),base.getTipo());
+        return result;
+    }
+    
+    public Pokemon copiado(PokemonVolador base){
+        Pokemon result = new PokemonVolador(base.getNombre(),base.getVida(),base.getDefensa(),base.getPrecision(),base.getTipo());
+        return result;
+    }
+    
+    public Pokemon copiado(Pokemon base){
+        
+        if( base.getTipo() == PokeTipo.Agua ){
+            return copiado( (PokemonAgua) base );
+            
+        }else if( base.getTipo() == PokeTipo.Fuego ){
+            return copiado( (PokemonFuego) base );
+            
+        }else if( base.getTipo() == PokeTipo.Planta ){
+            return copiado( (PokemonPlanta) base );
+            
+        }else if( base.getTipo() == PokeTipo.Electrico ){
+            return copiado( (PokemonElectrico) base );
+            
+        }else if( base.getTipo() == PokeTipo.Volador ){
+            return copiado( (PokemonVolador) base );
+        }
+        return null;
+    }
+    
+   public void notificacion(String mensaje){
+        String marco = "";
+        for (int i = 0; i < mensaje.length()+4; i++) {
+            marco += "-";
+        }
+        System.out.println(marco);
+        System.out.println("/ "+mensaje+" /");
+        System.out.println(marco);
+    }
+   
+   public void round(String mensaje){
+        String marco = "";
+        for (int i = 0; i < mensaje.length()+4; i++) {
+            marco += "#";
+        }
+        System.out.println(marco);
+        System.out.println("# "+mensaje+" #");
+        System.out.println(marco);
+    }
+   
+   public void apartador(){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+   
+   public void datosPantalla(Pokemon a, Pokemon b){
+       System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+       System.out.println("Tu pokemon: "+a.getNombre());
+       System.out.println("Su vida: "+a.getVida());
+       System.out.println("Su defensa: "+a.getDefensa());
+       System.out.println("Su tipo: "+a.getTipo());
+       System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+       System.out.println("El pokemon contrario: "+b.getNombre());
+       System.out.println("Vida del pokemon contrario: "+b.getVida());
+       System.out.println("Defensa del pokemon contrario: "+b.getDefensa());
+       System.out.println("Tipo del pokemon contrario: "+b.getTipo());
+       System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+   }
 }

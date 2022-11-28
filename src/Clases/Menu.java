@@ -2,6 +2,7 @@
 package Clases;
 
 import SubMenus.MenuPokemones;
+import SubMenus.MenuSeleccion;
 import java.util.Scanner;
 
 public class Menu {
@@ -69,11 +70,11 @@ public class Menu {
                 
                 boolean inicioExitoso = false;
                 for(int i=0; i<usuarios.length; i++ ){
-                    if(nomUsu.equals(usuarios[i].getAlias())){
+                    if( usuarios[i] != null && nomUsu.equals(usuarios[i].getAlias())){
                         if(contraUsu.equals(usuarios[i].getClave())){
                             inicioExitoso = true;
                             System.out.println("Bienvenido "+usuarios[i].getAlias() + "\n");
-                            inicioSesionExitoso();
+                            inicioSesionExitoso(usuarios[i]);
                         }
                     }
                 }
@@ -122,22 +123,25 @@ public class Menu {
     }
     
     //Luego de inicio de sesion exitoso
-    public void inicioSesionExitoso(){
+    public void inicioSesionExitoso(Usuario user){
         int decision = 0;
         Scanner seleccion = new Scanner(System.in);
         System.out.println("Que deseas hacer:\n");
         System.out.println("1 - Jugar");
         System.out.println("2 - Menu de pokemons");
-        System.out.println("3 - Salir");
+        System.out.println("3 - Menu de seleccion");
+        System.out.println("4 - Salir");
         decision = seleccion.nextInt();
-        PreJuego(decision);
+        PreJuego(decision, user);
     }
     
      //Opciones antes de batalla
-    public void PreJuego(int seleccion){
+    public void PreJuego(int seleccion, Usuario user){
         switch(seleccion){
             case 1:
                 System.out.println("Iniciando a jugar.......");
+                AccionesJuego acc = new AccionesJuego(user);
+                acc.inicioMenuPelea();
                 break;
             case 2:
                 System.out.println("Manejo de pokemons.....");
@@ -145,12 +149,18 @@ public class Menu {
                 men.menuP();
                 break;
             case 3: 
+                MenuSeleccion sel = new MenuSeleccion( user );
+                sel.menuSel();
+                break;
+            case 4: 
                 menu();
                 break;
             default:
                 System.out.println("Opcion no valida");
                 break;
         }
+        inicioSesionExitoso(user);
+        
     }
     
     //Acerca de 

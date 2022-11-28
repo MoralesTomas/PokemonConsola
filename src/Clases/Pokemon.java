@@ -18,6 +18,7 @@ public abstract class Pokemon {
     private double defensa;
     private double precision;
     private PokeTipo tipo;
+    private boolean vivo = true;
     private Ataque ataques [] = new Ataque[4];
 
     public Pokemon(String nombre, double vida, double defensa, double precision, PokeTipo tipo) {
@@ -27,6 +28,8 @@ public abstract class Pokemon {
         this.precision = precision;
         this.tipo = tipo;
     }
+    
+    
     
     public double atacar(double at){
         double ataque = 0;
@@ -105,9 +108,36 @@ public abstract class Pokemon {
         util.mensaje(getNombre());
     }
     
+    public void presentarse(int posicion){
+        utilidad util = new utilidad();
+        String sangria = "\t";
+        util.mensaje(posicion+" "+getNombre());
+        System.out.println(sangria + "Nombre: "+getNombre());
+        System.out.println(sangria + "Vida: "+getVida());
+        System.out.println(sangria + "Defensa: "+getDefensa());
+        System.out.println(sangria + "Tipo: "+getTipo());
+        System.out.println(sangria + "Ataques: ");
+        
+        sangria += "\t";
+        for (int i = 0; i < getAtaques().length; i++) {
+            String nombre = getAtaques()[i].getNombre();
+            double dan = getAtaques()[i].getDanio();
+            System.out.println(sangria+nombre+" -- Danio: "+dan);
+        }
+        
+        util.mensaje(getNombre());
+    }
+    
     @Override
     public String toString() {
-        
         return this.getNombre()+" "+this.getTipo();
+    }
+
+    public boolean isVivo() {
+        return vivo;
+    }
+
+    public void setVivo(boolean vivo) {
+        this.vivo = vivo;
     }
 }
